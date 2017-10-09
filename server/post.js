@@ -15,7 +15,6 @@ exports.getPosts = function() {
     return client.getEntries()
         .then((response) => {
             // console.log(response.items);
-            Object.assign({}, optionsDefault, options);
             return response.items((obj, [ key, value ]) => { return { obj, [key]: value.fields }; }, {});
         });
 };
