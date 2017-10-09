@@ -2,7 +2,7 @@
 Simple example how to implement content served by contentful
 
 ## Install and Running
-`git clone`
+`git clone git@github.com:dmarczydlo/contentful-react-example.git`
 
 
 1. npm install
