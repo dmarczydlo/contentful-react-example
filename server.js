@@ -11,6 +11,7 @@ const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 
+const postList = require('./server/postList');
 const post = require('./server/post');
 
 if (isDeveloping) {
@@ -31,9 +32,14 @@ if (isDeveloping) {
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
 
-    app.get('/posts/', function(req, res) {
-        post.getPosts().then((response) => res.json(response));
+    app.get('/api/posts/', function(req, res) {
+        postList.getPosts().then((response) => res.json(response));
     });
+
+    app.get('/api/post/:id', function(req, res) {
+        post.getPost(req.params.id).then((response) => res.json(response));
+    });
+
 
     app.get('*', function response(req, res) {
         res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
@@ -42,8 +48,12 @@ if (isDeveloping) {
 } else {
     app.use(express.static(__dirname + '/dist'));
 
-    app.get('/posts/', function(req, res) {
-        post.getPosts().then((response) => res.json(response));
+    app.get('/api/posts/', function(req, res) {
+        postList.getPosts().then((response) => res.json(response));
+    });
+
+    app.get('/api/post/:id', function(req, res) {
+        post.getPost(req.params.id).then((response) => res.json(response));
     });
 
     app.get('*', function response(req, res) {
