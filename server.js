@@ -31,7 +31,7 @@ if (isDeveloping) {
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
 
-    app.get('/posts/', function (req, res, next) {
+    app.get('/posts/', function(req, res) {
         post.getPosts().then((response) => res.json(response));
     });
 
@@ -42,7 +42,7 @@ if (isDeveloping) {
 } else {
     app.use(express.static(__dirname + '/dist'));
 
-    app.get('/posts/', function (req, res, next) {
+    app.get('/posts/', function(req, res) {
         post.getPosts().then((response) => res.json(response));
     });
 
