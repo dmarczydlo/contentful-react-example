@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import {connect} from 'react-redux';
 import {fetchPostSingleFromAPI} from '../actions/data';
@@ -35,6 +36,7 @@ class Post extends React.Component {
                         <CardText>
                             {post.description}
                         </CardText>
+                        <RaisedButton label="Back" primary={true} fullWidth={true} href="/" />
                     </Card>
                 </div>
             );
