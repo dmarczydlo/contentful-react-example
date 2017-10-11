@@ -10,7 +10,7 @@ export default class App extends React.Component {
             <MuiThemeProvider>
                 <div>
                     <AppBar
-                        title="Title"
+                        title="Demo contentful"
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
                     />
                     <BrowserRouter>

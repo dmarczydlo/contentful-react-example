@@ -10,7 +10,7 @@ import {fetchPostRequestFromAPI} from '../actions/data';
 
 const styles = {
     top: {
-        marginTop: '10px',
+        marginTop: '30px',
     },
     root: {
         display: 'flex',
@@ -18,8 +18,8 @@ const styles = {
         justifyContent: 'space-around',
     },
     gridList: {
-        width: 500,
-        height: 450,
+        width: '50%',
+        height: 900,
         overflowY: 'auto',
     },
 };
@@ -47,7 +47,7 @@ class PostList extends React.Component {
             return (
                 <div style={styles.root}>
                     <GridList
-                        cellHeight={180}
+                        cellHeight={300}
                         style={styles.gridList}
                     >
                         {listItems}

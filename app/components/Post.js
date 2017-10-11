@@ -6,8 +6,9 @@ import {connect} from 'react-redux';
 import {fetchPostSingleFromAPI} from '../actions/data';
 
 const style = {
-    width: '30px',
-    height: 'auto'
+    width: '30%',
+    height: 'auto',
+    margin: 'auto'
 };
 
 class Post extends React.Component {
@@ -22,18 +23,20 @@ class Post extends React.Component {
             return <CircularProgress/>;
         }else {
             return (
-                <Card>
-                    <CardMedia
-                        overlay={<CardTitle title={post.title} subtitle={post.author}/>}
-                    >
-                        {post.image.fields &&
-                            <img src={post.image.fields.file.url} alt="" style={style}/>
-                        }
-                    </CardMedia>
-                    <CardText>
-                        {post.description}
-                    </CardText>
-                </Card>
+                <div style={style}>
+                    <Card>
+                        <CardMedia
+                            overlay={<CardTitle title={post.title} subtitle={post.author}/>}
+                        >
+                            {post.image.fields &&
+                                <img src={post.image.fields.file.url} alt="" style={style}/>
+                            }
+                        </CardMedia>
+                        <CardText>
+                            {post.description}
+                        </CardText>
+                    </Card>
+                </div>
             );
         }
     }
